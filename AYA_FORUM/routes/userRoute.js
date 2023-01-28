@@ -1,5 +1,5 @@
 import express  from "express";
-import { deleteUserController, getUserController, userLoginController, userRegisterController, userUpdateController } from "../controller/userController.js";
+import { deleteUserController, getSpecificUser, userLoginController, userRegisterController, userUpdateController } from "../controller/userController.js";
 
 const userRoute = express.Router();
 
@@ -11,7 +11,7 @@ userRoute.post("/register", userRegisterController)
 userRoute.post("/login", userLoginController)
 
 // get all user by id
-userRoute.get("/:id", getUserController)
+userRoute.get("/:id", getSpecificUser)
 
 // delete user
 userRoute.delete("/:id", deleteUserController)
