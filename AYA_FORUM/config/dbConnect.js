@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const dbConnect = async () => {
+export const dbConnect = async () => {
   try{
     mongoose.set("strictQuery", false);
     await mongoose.connect(process.env.MONGODB_URI);

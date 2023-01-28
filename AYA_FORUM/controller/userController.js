@@ -1,12 +1,15 @@
-import User from "../model/users/user.model.js";
+import User from "../model/users/userModel.js";
 
 
 export const userRegisterController = async(req, res) => {
     const {firstname, lastname, profilephoto, email, password} =req.body;
+    const userFound = await User.findOne({email});
     try{
-        const userFound = await User.findOne({email});
         if(userFound){
-            return res.json({message: "User Already exist"})
+            res.json({
+                status: "error",
+                data: "User already exists"
+            });
         }
         const user = await User.create({
             firstname, 
