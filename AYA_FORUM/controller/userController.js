@@ -1,5 +1,8 @@
 import User from "../model/users/userModel.js";
 import bcrypt from "bcrypt";
+import generateToken from "../util/generateToken.js";
+import obtainTokenFromHeader from "../util/obtaintokenfromheader.js";
+
 
 
 export const userRegisterController = async(req, res) => {
@@ -33,8 +36,10 @@ export const userRegisterController = async(req, res) => {
     }
 }
 
+//login user
 export const userLoginController = async(req, res) => {
     const {email, password} = req.body;
+    // console.log(req.headers);
     
     try{
         const foundUser = await User.findOne({email});
@@ -58,7 +63,8 @@ export const userLoginController = async(req, res) => {
                 data: {
                     firstname: foundUser.firstname,
                     lastname: foundUser.lastname,
-                    email: foundUser.email
+                    email: foundUser.email,
+                    token: generateToken(foundUser._id)
                 }
             });
         }
@@ -71,7 +77,10 @@ export const userLoginController = async(req, res) => {
 export const getSpecificUser = async(req, res) => {
     const {id} = req.params;
     try{
+        const token = obtainTokenFromHeader(req);
+        console.log(token);
         const foundUser = await User.findById(id);
+        // const foundUser = await User.findOne({_id: ObjectId(id)});
         if(foundUser){
             res.json({
                 status: "success",
