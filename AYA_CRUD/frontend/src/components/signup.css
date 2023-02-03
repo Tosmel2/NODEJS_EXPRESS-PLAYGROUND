@@ -1,0 +1,135 @@
+.signup-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: rgb(228,183,195);
+  background: linear-gradient(90deg, rgba(228,183,195,1) 10%, rgba(242,191,191,1) 49%, rgba(203,209,241,1) 80%);
+}
+
+.signup-container .hero-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+  gap: 30px;
+  width: 85%;
+  height: 90%;
+  background: rgba(245, 247, 255, 0.85);
+  border-radius: 10px;
+
+}
+.hero-container .hero-left{
+  width: 50%;
+  height: 70%;
+}
+.hero-left .hero_left-img{
+  width: 100%;
+  height: 100%;
+}
+
+.hero-container .signup-hero-right{
+  width: 50%;
+  height: 90%;
+  padding: 0 1rem;
+}
+
+.signup-hero-right h2{
+  margin-bottom: 10px;
+}
+.signup-hero-right p{
+  margin-bottom: 15px;
+  line-height: 25px;
+  padding: 5px;
+  font-size: 1.15rem;
+}
+
+form .input-box{
+  position: relative;
+  width: 100%;
+}
+form .input-box input{
+  padding: 10px;
+  width: 100%;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  background: #FFFFFF;
+  border: 1px solid #DBE3FF;
+  border-radius: 5px
+}
+form.input-box input:focus{
+  outline: none;
+  border: none;
+}
+
+form .input-box input[type=submit]{
+  background: linear-gradient(113.87deg, #2663DF 14.81%, #11CBF0 88.76%);
+  box-shadow: 0px 6px 18px #9CADF2;
+  color: #FFFFFF;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.input-box button{
+  outline: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: #FFF;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 0.6rem 0;
+  background: linear-gradient(113.87deg, #2663DF 14.81%, #11CBF0 88.76%);
+  box-shadow: 0px 6px 18px #9CADF2;
+  border-radius: 6px;
+}
+
+@media screen and (max-width: 768px){
+  .signup-container{
+    height: 100%;
+    padding: 0;
+  }
+  .signup-container .hero-container{
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
+    gap: 0;
+    width: 100%;
+  }
+  .signup-container .hero-container .hero-left{
+    width: 90%;
+    height: 100%;
+    margin: 30px 0;
+  }
+  .hero-container .signup-hero-right{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+  }
+
+  .hero-container .signup-hero-right{
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .log-container{
+    border: #1A308F 2px solid;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(113.87deg, #2663DF 14.81%, #11CBF0 88.76%);
+  }
+  .log-container .signup-hero-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  }

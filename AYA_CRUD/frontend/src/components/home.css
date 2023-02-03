@@ -1,0 +1,127 @@
+.containerr{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  width: 100%;
+  height: 100vh;
+  background: rgb(228,183,195);
+  background: linear-gradient(90deg, rgba(228,183,195,1) 10%, rgba(242,191,191,1) 49%, rgba(203,209,241,1) 80%);
+}
+
+.containerr .hero-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+  gap: 30px;
+  width: 85%;
+  height: 80%;
+  background: rgba(245, 247, 255, 0.85);
+  border-radius: 10px;
+
+}
+.hero-container .hero-left{
+  width: 50%;
+  height: 65%;
+}
+.hero-left .hero_left-img{
+  width: 100%;
+  height: 100%;
+}
+
+.hero-container .hero-right{
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+.hero-right .hero-right_text{
+  line-height: 30px;
+  width: 100%;
+}
+.hero-right .hero-right_text h1{
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #2D2D2D;
+}
+.hero-right .hero-right_text p{
+  font-size: 18px;
+  color: #2D2D2D;
+  margin-bottom: 20px;
+}
+
+.hero-right .hero-right_text button{
+  outline: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: #FFF;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 0.4rem 0;
+  background: linear-gradient(113.87deg, #2663DF 14.81%, #11CBF0 88.76%);
+  /* background: linear-gradient(113.87deg, #2663DF 14.81%, #1A308F 88.76%); */
+  box-shadow: 0px 6px 18px #9CADF2;
+  border-radius: 6px;
+  margin-bottom: 5px;
+}
+
+/* .hrm #login-btn{
+  outline: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: black;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 0.4rem 0;
+  background-color: #ffffff;
+  border: 1px solid #11CBF0;
+  box-shadow: 0px 6px 18px #9CADF2;
+  border-radius: 6px;
+  margin-bottom: 5px;
+} */
+
+.hero-right .hero-right_text .login-btn:hover{
+background: linear-gradient(113.87deg, #11CBF0 14.81%, #2663DF 88.76%);
+color: #FFF;
+}
+
+@media screen and (max-width: 768px){
+  .containerr{
+    height: 100%;
+    width: 100%;
+    padding: 2rem 0;
+    background: rgba(245, 247, 255, 0.85);
+  }
+  .containerr .hero-container{
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px;
+    gap: 0;
+    height: 580px;
+  }
+
+  .containerr .hero-container .hero-left{
+    width: 100%;
+    height: 50%;
+    margin-bottom: 1rem;
+  }
+ 
+  .containerr .hero-container .hero-right{
+    width: 100%;
+    text-align: center;
+  }
+  .hero-right .hero-right_text h1{
+    font-size: 20px;
+    margin-top: 1rem;
+    margin-bottom: 5px;
+  }
+  .hero-right .hero-right_text p{
+    font-size: 10px;
+    margin-bottom: 6px;
+  }
+}

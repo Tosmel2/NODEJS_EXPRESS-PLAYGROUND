@@ -1,0 +1,13 @@
+{
+  "name": "aya_crud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "npm run build --prefix frontend && npm run dev --prefix backend",
+    "frontend": "npm run start --prefix frontend",
+    "backend": "npm run dev --prefix backend"
+  },
+  "author": "Tosin Adewale",
+  "license": "MIT"
+}
