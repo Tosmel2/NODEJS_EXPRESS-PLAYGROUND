@@ -1,7 +1,7 @@
 import User from "../model/users/userModel.js";
 import bcrypt from "bcrypt";
 import generateToken from "../util/generateToken.js";
-import obtainTokenFromHeader from "../util/obtaintokenfromheader.js";
+// import obtainTokenFromHeader from "../util/obtaintokenfromheader.js";
 
 
 
@@ -23,7 +23,8 @@ export const userRegisterController = async(req, res) => {
             firstname, 
             lastname, 
             email, 
-            password: hashPassword
+            password: hashPassword,
+            profilephoto
         })
 
         res.json({
@@ -73,23 +74,36 @@ export const userLoginController = async(req, res) => {
     }
 }
 
+export const displayAllUsers = async(req, res) => {
+    try {
+        res.json({
+            status:"success",
+            data:"Display all the users"
+        })
+        
+    } catch (error) {
+        res.json(error.message)
+        
+    }
+}
+
 //profile
 export const getSpecificUser = async(req, res) => {
-    const {id} = req.params;
+    // const {id} = req.params;
     try{
-        const token = obtainTokenFromHeader(req);
-        console.log(token);
-        const foundUser = await User.findById(id);
-        // const foundUser = await User.findOne({_id: ObjectId(id)});
+        // const token = obtainTokenFromHeader(req);
+        // console.log(token);
+        // console.log(req.userAuth);
+        const foundUser = await User.findById(req.userAuth);
         if(foundUser){
-            res.json({
+            return res.json({
                 status: "success",
                 data: {foundUser}
         });
         }else{
             res.json({
-                status: "success",
-                message: "User not found"
+                status: "error",
+                message: "User with such id does not exist"
         });
         }
     }catch(error){
@@ -97,7 +111,7 @@ export const getSpecificUser = async(req, res) => {
     }
 }
 
-export const userUpdateController = async(req, res) => {
+export const updateUser = async(req, res) => {
     try{
         res.json({
             status: "success",
@@ -108,7 +122,41 @@ export const userUpdateController = async(req, res) => {
     }
 }
 
-export const deleteUserController = async(req, res) => {
+export const profilePhotoUploadController = async(req, res) => {
+    // console.log(req.file);
+    try {
+
+    const profileUserToBeUpdated = await User.findById(req.userAuth);
+    if (!profileUserToBeUpdated) {
+        res.json({
+             status:"error",
+             message:"User not found"
+        })
+    }
+
+    //if the user is updating
+    if(req.file){
+        //update the profile
+        await User.findByIdAndUpdate(req.userAuth,{
+            $set:{
+                profilephoto: req.file.path
+            },
+        },{
+            new:true,
+        }
+        );
+        res.json({
+            status: 'success',
+            data: 'image uploaded successfully'
+        })
+    }
+        
+    } catch (error) {
+        res.json(error.message)
+    }
+}
+
+export const deleteUser = async(req, res) => {
     try{
         res.json({
             status: "user deleted"
